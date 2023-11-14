@@ -1,0 +1,22 @@
+{
+  "name": "liatrioapp",
+  "version": "1.0.0",
+  "description": "This is a simple single endpoint web application that returns a JSON object with a message and dynamically set timestamp.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/melippmann/LiatrioApp.git"
+  },
+  "author": "Meher Lippmann",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/melippmann/LiatrioApp/issues"
+  },
+  "homepage": "https://github.com/melippmann/LiatrioApp#readme",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
