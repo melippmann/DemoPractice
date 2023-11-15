@@ -28,14 +28,14 @@ jobs:
         uses: 'google-github-actions/auth@v1'
         with:
             # create_credentials_file: true
-            workload_identity_provider: 'projects/73280995160/locations/global/workloadIdentityPools/deploy-pool/providers/service-provider'
-            service_account: 'deploy-service@demopractice-405206.iam.gserviceaccount.com'
+            workload_identity_provider: 'projects/73280995160/locations/global/workloadIdentityPools/my-pool/providers/my-pool'
+            service_account: 'my-service-account@demopractice-405206.iam.gserviceaccount.com'
       - name: Deploy to Cloud Run
         id: deploy
         uses: google-github-actions/deploy-cloudrun@v1
         with:
           service: demopractice
           region: us-west1
-          image: docker.io/${{secrets.DOCKER_USER}}/liatrioexercise
+          image: docker.io/${{secrets.DOCKER_USER}}/demo
       - name: Show Output
         run: echo ${{ steps.deploy.outputs.url }}
