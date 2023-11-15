@@ -13,7 +13,7 @@ jobs:
       steps:
       - uses: actions/checkout@v3
       - name: Build the Docker image
-        run: docker build . --file Dockerfile --tag ${{secrets.DOCKER_USER}}/demo
+        run: docker build . --file Dockerfile --tag ${{secrets.DOCKER_USER}}/liatrioexercise
       - name: docker login
         env:
             DOCKER_USER: ${{secrets.DOCKER_USER}}
@@ -21,21 +21,21 @@ jobs:
         run: |
             docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
       - name: Docker Push
-        run: docker push ${{secrets.DOCKER_USER}}/demo
+        run: docker push ${{secrets.DOCKER_USER}}/liatrioexercise
       
       - id: 'auth'
         name: 'Authenticate to Google Cloud'
         uses: 'google-github-actions/auth@v1'
         with:
             # create_credentials_file: true
-            workload_identity_provider: 'https://iam.googleapis.com/projects/73280995160/locations/global/workloadIdentityPools/demo-deploy/providers/deploy-provider'
-            service_account: 'demo-deploy-service@demopractice-405206.iam.gserviceaccount.com'
+            workload_identity_provider: 'projects/492409410562/locations/global/workloadIdentityPools/liatrio-pool/providers/liatrio-deploy-action'
+            service_account: 'deploy-service@phonic-heaven-404203.iam.gserviceaccount.com'
       - name: Deploy to Cloud Run
         id: deploy
         uses: google-github-actions/deploy-cloudrun@v1
         with:
           service: liatrio-interview-exercise
           region: us-west1
-          image: docker.io/${{secrets.DOCKER_USER}}/demo
+          image: docker.io/${{secrets.DOCKER_USER}}/liatrioexercise
       - name: Show Output
         run: echo ${{ steps.deploy.outputs.url }}
