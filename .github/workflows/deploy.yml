@@ -28,7 +28,7 @@ jobs:
         uses: 'google-github-actions/auth@v1'
         with:
             # create_credentials_file: true
-            workload_identity_provider: 'projects/73280995160/locations/global/workloadIdentityPools/demo-deploy/providers/demo-deploy-pool'
+            workload_identity_provider: 'projects/73280995160/locations/global/workloadIdentityPools/demo-deploy/providers/demo-deploy'
             service_account: 'demo-deploy@demopractice-405206.iam.gserviceaccount.com'
             # service_account: 'deploy-service@phonic-heaven-404203.iam.gserviceaccount.com'
             # service_account: 'deploy-service@phonic-heaven-404203.iam.gserviceaccount.com'
