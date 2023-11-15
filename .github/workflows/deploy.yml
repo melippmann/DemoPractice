@@ -28,10 +28,8 @@ jobs:
         uses: 'google-github-actions/auth@v1'
         with:
             # create_credentials_file: true
-            workload_identity_provider: 'https://iam.googleapis.com/projects/73280995160/locations/global/workloadIdentityPools/demo-deploy/providers/demo-deploy-pool'
-            service_account: 'demo-deploy@demopractice-405206.iam.gserviceaccount.com'
-            # service_account: 'deploy-service@phonic-heaven-404203.iam.gserviceaccount.com'
-            # service_account: 'deploy-service@phonic-heaven-404203.iam.gserviceaccount.com'
+            workload_identity_provider: 'https://iam.googleapis.com/projects/73280995160/locations/global/workloadIdentityPools/demo-deploy/providers/deploy-provider'
+            service_account: 'demo-deploy-service@demopractice-405206.iam.gserviceaccount.com'
       - name: Deploy to Cloud Run
         id: deploy
         uses: google-github-actions/deploy-cloudrun@v1
