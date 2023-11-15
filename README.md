@@ -14,6 +14,11 @@
 </p></details>
 
 <details><summary>Tool description</summary><p>
+
+>Git...is a distributed version control system that tracks changes in any set of computer files.
+
+>GitHub...is a platform and cloud-based service for software development and version control using Git, allowing developers to store and manage their code. It provides the distributed version control of Git plus access control, bug tracking, software feature requests, task management, continuous integration, and wikis for every project.
+  
 </p></details>
 
 
@@ -58,6 +63,10 @@ Where the typestamp is dynamically generated.
 </p></details>
 
 <details><summary>Tool description</summary><p>
+  
+  >As an asynchronous event-driven JavaScript runtime, Node.js is designed to build scalable network applications...users of Node.js are free from worries of dead-locking the process, since there are no locks. Almost no function in Node.js directly performs I/O, so the process never blocks except when the I/O is performed using synchronous methods of Node.js standard library. Because nothing blocks, scalable systems are very reasonable to develop in Node.js.
+
+  >Express is a minimal and flexible Node.js web application framework that provides a robust set of features for web and mobile applications.
 </p></details>
 
 <details><summary>Read the Docs</summary><p>
@@ -114,8 +123,10 @@ Following a "hello world" example from the docs above is enough to build the des
 
 </p></details>
 <details><summary>Tool Description</summary><p>
-
+  
+  >A container is a standard unit of software that packages up code and all its dependencies so the application runs quickly and reliably from one computing environment to another. A Docker container image is a lightweight, standalone, executable package of software that includes everything needed to run an application: code, runtime, system tools, system libraries and settings.
 </p></details>
+
 <details><summary>Read the Docs</summary><p>
 
 Docker's docs for node.js applications:
@@ -155,12 +166,12 @@ docker stop <container-id>
     - [] Verifiy the application functionality using the Liatrio GitHub [apprentice-action](https://github.com/liatrio/github-actions/tree/master/apprentice-action)
     - [] Pushes the image to Docker Hub
 
-  This third party action will test 
-  - [] the status code of the root endpoint
-  - [] that a json object with a message is returned
-  - [] that the message has a timestamp property
-  - [] contains: "My name is"
-  - [] time stamp is numeric
+    This third party action will test 
+    - [] the status code of the root endpoint
+    - [] that a json object with a message is returned
+    - [] that the message has a timestamp property
+    - [] contains: "My name is"
+    - [] time stamp is numeric
 
   The test uses a docker bridge on port 80 and the action requires a built container to run.
 
@@ -174,6 +185,7 @@ docker stop <container-id>
 
 <details><summary>Tool Description</summary><p>
 
+  >GitHub Actions makes it easy to automate all your software workflows, now with world-class CI/CD. Build, test, and deploy your code right from GitHub. Make code reviews, branch management, and issue triaging work the way you want.
 </p></details>
 <details><summary>Read the Docs</summary><p>
 
@@ -186,6 +198,7 @@ https://docs.github.com/en/actions/security-guides/security-hardening-for-github
 </p></details>
 
 <details><summary>Walkthrough</summary><p>
+
 Navigate to actions in the GitHub repo
 
 [set up a workflow yourself](https://github.com/melippmann/DemoPractice/new/main?filename=.github%2Fworkflows%2Fmain.yml&workflow_template=blank)
@@ -206,33 +219,69 @@ create new repository secrets for the DockerHub username and password used in th
   ${{secrets.DOCKER_PASSWORD}}
 
 ```
-In git, pull the changes from the repo to sync and then add, commit and push all the application files up to GitHub:
-
+In git, pull the changes
 ```
 git pull
 
 ```
 Now we can commit our changes and push to the github repo
+
 </p></details>
 
-
 ## Cloud Deployment
+
 <details><summary>Task</summary><p>
 
 - [] Deploy to Google Could Platform using image from Docker Hub
+</p></details>
+<details><summary>Tool Description</summary><p>
+  
+  >Fully managed platform for containerized applications...You can write code using your favorite language, framework, and libraries, package it up as a container, run `gcloud run deploy`, and your app will be live—provided with everything it needs to run in production...fast autoscaling...automatically build container images form source code...run scheduled jobs to completion...
+</p></details>
+<details><summary>Read the Docs</summary><p>
+
+https://cloud.google.com/run/docs/deploying
+</p></details>
+
+<details><summary>Walkthrough</summary><p>
+
+## Using Google Cloud Run:
+
+
+  - [] sign into google cloud
+  - [] create a new Project
+    - [] Go to Cloud Run
+    - [] create a new service
+    - [] Deploy one revision from an existing container image (docker.io/melippmann/demo)
+    - [] region: us-west1 (Oregon)
+    - [] set max # instances
+    - [] allow access
+    - [] allow unauthenticated invocations
+  
+</p>
+</details>
+
+## Deployment Workflow
+<details><summary>Task</summary><p>
+
+  - []Add a GitHub Workflow to automatically deploy the applicaiton to the cloud platform when changes are made to the main branch of the repository
+
+
 </p></details>
 <details><summary>Tool Description</summary><p>
 
 </p></details>
 <details><summary>Read the Docs</summary><p>
 
+https://github.com/google-github-actions/deploy-cloudrun
+
+Configure workload identity federation with deployment pipelines for GitHub
+
+https://cloud.google.com/iam/docs/workload-identity-federation-with-deployment-pipelines
 </p></details>
 
 <details><summary>Walkthrough</summary><p>
-
-## Using Google Cloud Run:
-  - [] sign into google cloud
-  - [] create a new Project
+- [] create a new Project
     - [] set up Cloud Run
     - [] IAM & Admin
     - [] create Service Acount: demo-deploy
@@ -255,31 +304,6 @@ Now we can commit our changes and push to the github repo
         - [] ex: projects/73280995160/locations/global/workloadIdentityPools/demo-deploy/providers/demo-deploy-pool
       - [] Configure Provider Attributes:
         - [] google.subject == assertion.sub
-</p>
-</details>
-
-## Deployment Workflow
-<details><summary>Task</summary><p>
-
-</p></details>
-<details><summary>Tool Description</summary><p>
-
-</p></details>
-<details><summary>Read the Docs</summary><p>
-
-</p></details>
-
-<details><summary>Walkthrough</summary><p>
-</p></details>
-
-<details><summary>details</summary><p>
-
-https://github.com/google-github-actions/deploy-cloudrun
-
-Configure workload identity federation with deployment pipelines for GitHub
-https://cloud.google.com/iam/docs/workload-identity-federation-with-deployment-pipelines
-
-
-
+        - [] grant access to service account
 </p>
 </details>
