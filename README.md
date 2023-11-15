@@ -219,6 +219,7 @@ Now we can commit our changes and push to the github repo
 ## Cloud Deployment
 <details><summary>Task</summary><p>
 
+- [] Deploy to Google Could Platform using image from Docker Hub
 </p></details>
 <details><summary>Tool Description</summary><p>
 
@@ -228,44 +229,32 @@ Now we can commit our changes and push to the github repo
 </p></details>
 
 <details><summary>Walkthrough</summary><p>
-</p></details>
-
-<details><summary>details</summary><p>
-<!-- 
-## Create new project
-left panel: VM instances
-## create instance
-  name: instance-1
-  region: us-west1 (oregon)
-  zone: us-west1-b
-  Machine configuration: E2
-  Machine type: shared-core e2-micro
-  availability: standard
-## Container
-  # deploy container
-    container image: melippmann / liatrio_apprenticeship_exercise
-  # boot disk
-    versopm: container-optimized OS 
-    boot disk type: standard persistent disk
-    size: 10 (GB)
-## Identity and API access
-  Compute Engine default service account
-## Access scopes
-  Allow default access
-## Firewall
-  allow HTTP trafic -->
 
 ## Using Google Cloud Run:
-
- deploy one revision from an existing conterin image
- container image URL: docker.io/melippmann/liatrio_apprenticeship_exercise
- service name: liatrio-apprenticeship-exercise
- region: us-west1 (Oregon)
- CPU is only allocated during request processing
- maximum number of instances: 4
- Ingress control: All
- Authentication: Allow unauthenticated invocations
- create
+  - [] sign into google cloud
+  - [] create a new Project
+    - [] set up Cloud Run
+    - [] IAM & Admin
+    - [] create Service Acount: demo-deploy
+    - [] Grant Permisions to sevice acount
+      - [] App Engine Admin
+      - [] Cloud Build Service Account
+      - [] Cloud Run Admin
+      - [] Service Acount user
+      - [] copy the service account email address and paste into deploy yaml
+    - []  create Workload Identity Federation
+      - [] Create workload Identity provider and pool
+      - [] add a provider to pool
+        - [] OpenId Connect (OIDC)
+      - [] provider details
+        - [] provider name and id can be the same
+          - demo-deploy-pool
+        - [] Issuer(url)
+          - [] https://token.actions.githubusercontent.com/
+      - [] copy the link to use in the deploy action
+        - [] ex: projects/73280995160/locations/global/workloadIdentityPools/demo-deploy/providers/demo-deploy-pool
+      - [] Configure Provider Attributes:
+        - [] google.subject == assertion.sub
 </p>
 </details>
 
