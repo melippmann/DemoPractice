@@ -34,7 +34,7 @@ jobs:
         id: deploy
         uses: google-github-actions/deploy-cloudrun@v1
         with:
-          service: liatrio-interview-exercise
+          service: DemoPractice
           region: us-west1
           image: docker.io/${{secrets.DOCKER_USER}}/liatrioexercise
       - name: Show Output
