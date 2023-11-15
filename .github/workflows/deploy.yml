@@ -13,7 +13,7 @@ jobs:
       steps:
       - uses: actions/checkout@v3
       - name: Build the Docker image
-        run: docker build . --file Dockerfile --tag ${{secrets.DOCKER_USER}}/liatrioexercise
+        run: docker build . --file Dockerfile --tag ${{secrets.DOCKER_USER}}/demo
       - name: docker login
         env:
             DOCKER_USER: ${{secrets.DOCKER_USER}}
@@ -21,7 +21,7 @@ jobs:
         run: |
             docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
       - name: Docker Push
-        run: docker push ${{secrets.DOCKER_USER}}/liatrioexercise
+        run: docker push ${{secrets.DOCKER_USER}}/demo
       
       - id: 'auth'
         name: 'Authenticate to Google Cloud'
