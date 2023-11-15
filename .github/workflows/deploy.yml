@@ -28,8 +28,8 @@ jobs:
         uses: 'google-github-actions/auth@v1'
         with:
             # create_credentials_file: true
-            workload_identity_provider: 'projects/492409410562/locations/global/workloadIdentityPools/liatrio-pool/providers/liatrio-deploy-action'
-            service_account: 'deploy-service@phonic-heaven-404203.iam.gserviceaccount.com'
+            workload_identity_provider: 'projects/73280995160/locations/global/workloadIdentityPools/demo-pool/providers/demo-provider'
+            service_account: 'deploy-service@demopractice-405206.iam.gserviceaccount.com'
       - name: Deploy to Cloud Run
         id: deploy
         uses: google-github-actions/deploy-cloudrun@v1
