@@ -171,6 +171,7 @@ docker stop <container-id>
     -p host:container
   ```
 </p></details>
+
 <details><summary>Tool Description</summary><p>
 
 </p></details>
@@ -185,7 +186,6 @@ https://docs.github.com/en/actions/security-guides/security-hardening-for-github
 </p></details>
 
 <details><summary>Walkthrough</summary><p>
-</p></details>
 Navigate to actions in the GitHub repo
 
 [set up a workflow yourself](https://github.com/melippmann/DemoPractice/new/main?filename=.github%2Fworkflows%2Fmain.yml&workflow_template=blank)
@@ -213,6 +213,7 @@ git pull
 
 ```
 Now we can commit our changes and push to the github repo
+</p></details>
 
 
 ## Cloud Deployment
