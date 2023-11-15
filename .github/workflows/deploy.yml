@@ -28,7 +28,7 @@ jobs:
         uses: 'google-github-actions/auth@v1'
         with:
             # create_credentials_file: true
-            workload_identity_provider: 'https://iam.googleapis.com/projects/73280995160/locations/global/workloadIdentityPools/demo-pool/providers/demo-provider'
+            workload_identity_provider: 'projects/73280995160/locations/global/workloadIdentityPools/demo-pool/providers/demo-provider'
             service_account: 'deploy-service@demopractice-405206.iam.gserviceaccount.com'
       - name: Deploy to Cloud Run
         id: deploy
