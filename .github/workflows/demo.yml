@@ -13,7 +13,7 @@ jobs:
       - name: run image
         run: docker run -dp 80:8080 ${{secrets.DOCKER_USER}}/demo
       - name: run tests
-        uses: liatrio/github-actions/apprentice-action@master
+        uses: liatrio/github-actions/apprentice-action@808117af9b4a1e57c4cb79dbcb2d25de5ea3c68d
       - name: docker login
         env:
             DOCKER_USER: ${{secrets.DOCKER_USER}}
